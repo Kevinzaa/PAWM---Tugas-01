@@ -39,6 +39,14 @@ window.onscroll = () => {
 let toggleBtn = document.querySelector('#toggle-btn');
 let darkMode = localStorage.getItem('dark-mode');
 
+window.onload = function () {
+    if (!localStorage.getItem('theme')) {
+        document.body.classList.remove('dark');
+    } else if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+    }
+};
+
 const enableDarkMode = () => {
     toggleBtn.classList.replace('fa-sun', 'fa-moon');
     body.classList.add('dark');

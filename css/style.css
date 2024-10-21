@@ -10,6 +10,7 @@
     --color4:#F1F6F9;
     --color5:#dcdcdc;
     --color6:rgb(134, 148, 203);
+    --footer:#4f82c4;;
     --btn-color:rgb(74, 184, 212);
     --btn-color-hover:rgb(0, 131, 163);
     --btn-header:#212A3E;
@@ -341,7 +342,7 @@ section{
 .footer{
     position: sticky;
     bottom: 0; right: 0; left: 0;
-    background-color: var(--color2);
+    background-color: var(--footer);
     padding: 1rem;
     text-align: center;
     color: var(--white);
