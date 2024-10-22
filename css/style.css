@@ -330,6 +330,7 @@ section{
 
 .side-bar .navbar a:hover{
     background-color: var(--color5);
+    cursor: pointer;
 }
 
 .side-bar .navbar a:hover i{
@@ -559,7 +560,7 @@ section{
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     font-size: 2rem;
-    color: var(--white);
+    color: #fff;
     background-color: rgba(0, 0, 0, .3);
 }
 
@@ -652,13 +653,28 @@ section{
     left: 2rem;
     right: 2rem;
     height: 20rem;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, .3);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    color: var(--white);
+    color: #fff;
     border-radius: .5rem;
+    display: none;
+}
+
+.videos-container .box-container .box:hover i{
+    display: flex;
+}
+
+.videos-container .box-container .box h3{
+    font-size: 2rem;
+    color: var(--black);
+    margin-top: 1rem;
+}
+
+.videos-container .box-container .box:hover h3{
+    color: var(--biruitb);
 }
 
 .footer{
@@ -735,5 +751,9 @@ section{
     .flex-btn{
         flex-flow: column;
         gap: 0;
+    }
+
+    .playlist .row .col .thumb img{
+        height: 20rem;
     }
 }
