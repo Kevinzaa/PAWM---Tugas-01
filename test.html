@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi Bentuk Molekul</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+    .shape-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    canvas {
+      border: 1px solid black;
+    }
+    .shape-btn {
+      margin: 10px;
+      padding: 10px;
+      cursor: pointer;
+      border: 2px solid #000;
+      background-color: #f0f0f0;
+    }
+    .shape-btn:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Simulasi Bentuk Molekul</h1>
+    <p>Pilih bentuk molekul untuk melihat representasi 2D sederhana.</p>
+  </header>
+
+  <section>
+    <div class="shape-container">
+      <div class="shape-btn" onclick="drawLinear()">Linear</div>
+      <div class="shape-btn" onclick="drawBent()">Bent</div>
+      <div class="shape-btn" onclick="drawTrigonal()">Trigonal Planar</div>
+      <div class="shape-btn" onclick="drawTetrahedral()">Tetrahedral</div>
+    </div>
+
+    <canvas id="moleculeCanvas" width="400" height="400"></canvas>
+  </section>
+
+  <script>
+    const canvas = document.getElementById('moleculeCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawAtom(x, y, label) {
+      ctx.beginPath();
+      ctx.arc(x, y, 20, 0, Math.PI * 2);
+      ctx.fillStyle = 'lightblue';
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = 'black';
+      ctx.fillText(label, x - 5, y + 5);
+    }
+
+    function drawBond(x1, y1, x2, y2) {
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+
+    function drawLinear() {
+      clearCanvas();
+      drawAtom(100, 200, "A");
+      drawAtom(300, 200, "B");
+      drawBond(120, 200, 280, 200);
+    }
+
+    function drawBent() {
+      clearCanvas();
+      drawAtom(200, 200, "A");
+      drawAtom(100, 300, "B");
+      drawAtom(300, 300, "C");
+      drawBond(120, 220, 180, 280);
+      drawBond(220, 220, 280, 280);
+    }
+
+    function drawTrigonal() {
+      clearCanvas();
+      drawAtom(200, 200, "A");
+      drawAtom(100, 300, "B");
+      drawAtom(300, 300, "C");
+      drawAtom(200, 100, "D");
+      drawBond(200, 180, 200, 120);
+      drawBond(200, 220, 280, 280);
+      drawBond(200, 220, 120, 280);
+    }
+
+    function drawTetrahedral() {
+      clearCanvas();
+      drawAtom(200, 200, "A");
+      drawAtom(100, 300, "B");
+      drawAtom(300, 300, "C");
+      drawAtom(200, 100, "D");
+      drawAtom(200, 50, "E");
+      drawBond(200, 220, 120, 280);
+      drawBond(200, 220, 280, 280);
+      drawBond(200, 180, 200, 120);
+      drawBond(200, 180, 200, 70);
+    }
+  </script>
+
+</body>
+</html>

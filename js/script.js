@@ -76,3 +76,111 @@ toggleBtn.onclick = (e) => {
 toggleBtn.addEventListener('click', () => {
     body.classList.toggle('dark');
 });
+
+
+// kimia section
+const canvas = document.getElementById('moleculeCanvas');
+const ctx = canvas.getContext('2d');
+
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawAtom(x, y, label) {
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, Math.PI * 2);
+    ctx.fillStyle = 'orange';
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = 'black';
+    ctx.fillText(label, x - 5, y + 5);
+}
+
+function drawBond(x1, y1, x2, y2) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+}
+
+function drawLinear() {
+    clearCanvas();
+    drawAtom(100, 200, "A");
+    drawAtom(300, 200, "B");
+    drawBond(120, 200, 280, 200);
+}
+
+function drawBent() {
+    clearCanvas();
+    drawAtom(200, 200, "A");
+    drawAtom(100, 300, "B");
+    drawAtom(300, 300, "C");
+    drawBond(180, 220, 110, 280);
+    drawBond(220, 220, 280, 280);
+}
+
+function drawTrigonal() {
+    clearCanvas();
+    drawAtom(200, 200, "A");
+    drawAtom(100, 300, "B");
+    drawAtom(300, 300, "C");
+    drawAtom(200, 100, "D");
+    drawBond(200, 180, 200, 120);
+    drawBond(200, 220, 280, 280);
+    drawBond(200, 220, 120, 280);
+}
+
+function drawTetrahedral() {
+    clearCanvas();
+    drawAtom(200, 200, "A");
+    drawAtom(100, 300, "B");
+    drawAtom(300, 300, "C");
+    drawAtom(200, 100, "D");
+    drawAtom(200, 50, "E");
+    drawBond(200, 220, 120, 280);
+    drawBond(200, 220, 280, 280);
+    drawBond(200, 180, 200, 120);
+    drawBond(200, 180, 200, 70);
+}
+    
+function drawOctahedral() {
+    clearCanvas();
+    drawAtom(200, 200, "A");
+    drawAtom(100, 200, "B");
+    drawAtom(300, 200, "C");
+    drawAtom(200, 100, "D");
+    drawAtom(200, 300, "E");
+    drawAtom(200, 50, "F");
+    drawAtom(200, 350, "G");
+    drawBond(120, 200, 180, 200);
+    drawBond(220, 200, 280, 200);
+    drawBond(200, 180, 200, 120);
+    drawBond(200, 220, 200, 280);
+    drawBond(200, 50, 200, 100);
+    drawBond(200, 300, 200, 350);
+}
+    
+function drawTShaped() {
+    clearCanvas();
+    drawAtom(200, 200, "A");
+    drawAtom(200, 100, "B");
+    drawAtom(300, 200, "C");
+    drawAtom(100, 200, "D");
+    drawBond(200, 180, 200, 120);
+    drawBond(220, 200, 280, 200);
+    drawBond(180, 200, 120, 200);
+}
+    
+function drawSquarePlanar() {
+    clearCanvas();
+    drawAtom(200, 200, "A");
+    drawAtom(100, 200, "B");
+    drawAtom(300, 200, "C");
+    drawAtom(200, 100, "D");
+    drawAtom(200, 300, "E");
+    drawBond(120, 200, 180, 200);
+    drawBond(220, 200, 280, 200);
+    drawBond(200, 180, 200, 120);
+    drawBond(200, 220, 200, 280);
+}
+    
