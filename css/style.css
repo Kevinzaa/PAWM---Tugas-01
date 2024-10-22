@@ -308,6 +308,7 @@ section{
 
 .side-bar .navbar{
     margin-top: 1rem;
+    transition: .2s linear;
 }
 
 .side-bar .navbar a{
@@ -677,6 +678,64 @@ section{
     color: var(--biruitb);
 }
 
+.contact h1{
+    color:var(--black);
+}
+
+.contact .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--white);
+    gap: 1rem;
+}
+
+.contact .row .map{
+    flex: 1 1 45rem;
+    width: 100%;
+    padding-left: 2rem;
+}
+
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.contact .row form h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color: var(--black);
+}
+
+.contact .row form .inputBox {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: var(--color5);
+    border:var(--border);
+}
+
+.contact .row form .inputBox span {
+    color: var(--black);
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.contact .row form .inputBox input {
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #000000;
+    text-transform: none;
+    background: none;
+}
+
+.contact .row .btn:hover{
+    cursor: pointer;
+}
+
 .footer{
     position: sticky;
     bottom: 0; right: 0; left: 0;
@@ -709,6 +768,10 @@ section{
 
     .side-bar .close-side-bar{
         display: block;
+    }
+
+    .contact .row .map {
+        margin: 10px 10px;
     }
 }
 
