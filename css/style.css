@@ -852,6 +852,40 @@ section{
     background-color: #fff;
 }
 
+#electricFieldCanvas {
+    border: 1px solid black;
+}
+
+.interactive-fisika {
+    padding: 20px;
+    text-align: left; /* Ubah dari center menjadi left */
+}
+
+.interactive-fisika h3 {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 1.3rem;
+    text-align: left; /* Ubah menjadi kiri */
+}
+
+.interactive-fisika canvas {
+    border: 1px solid var(--black);
+    display: block;
+    margin: 0; /* Hilangkan margin auto supaya tidak di tengah */
+    background-color: var(--white);
+}
+
+.interactive-fisika button {
+    margin-top: 20px;
+    background-color: var(--btn-color);
+    padding: 1.5rem 3rem;
+}
+
+.interactive-fisika button:hover {
+    margin-top: 20px;
+    background-color: var(--btn-color-hover);
+}
+
 .footer{
     position: sticky;
     bottom: 0; right: 0; left: 0;
