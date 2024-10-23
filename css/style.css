@@ -889,14 +889,42 @@ section{
     .contact .row .map {
         margin: 10px 10px;
     }
+
+    .visualization-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .controls {
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .molecule-visualization {
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media (max-width : 991px){
     html{
         font-size: 55%;
     }
-}
 
+    .controls .heading {
+        font-size: 1.8rem;
+    }
+
+    .controls .description {
+        font-size: 1.4rem; 
+    }
+
+    .shape-container select {
+        width: 180px; 
+    }
+}
+    
 @media (max-width : 768px){
     #search-btn{
         display: inline-block;
@@ -916,6 +944,29 @@ section{
     .header .flex .search-form.active{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
+
+    .visualization-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center; 
+    }
+
+    .molecule-visualization canvas {
+        width: 90%; 
+        height: auto;
+    }
+
+    .controls .heading {
+        font-size: 1.6rem; 
+    }
+
+    .controls .description {
+        font-size: 1.2rem; 
+    }
+
+    .shape-container select {
+        width: 170px; 
+    }
 }
 
 @media (max-width : 450px){
@@ -934,5 +985,27 @@ section{
 
     .playlist .row .col .thumb img{
         height: 20rem;
+    }
+
+    .visualization-container {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .molecule-visualization canvas {
+        width: 80%; 
+    }
+
+    .controls .heading {
+        font-size: 1.4rem; 
+    }
+
+    .controls .description {
+        font-size: 1rem; 
+    }
+
+    .shape-container select {
+        width: 150px; 
+        padding: 4px;
     }
 }
