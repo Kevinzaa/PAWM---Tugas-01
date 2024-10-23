@@ -183,4 +183,35 @@ function drawSquarePlanar() {
     drawBond(200, 180, 200, 120);
     drawBond(200, 220, 200, 280);
 }
+
+function handleShapeSelection() {
+    const shape = document.getElementById('moleculeShapes').value;
+
+    switch (shape) {
+        case 'linear':
+            drawLinear();
+            break;
+        case 'bent':
+            drawBent();
+            break;
+        case 'trigonal':
+            drawTrigonal();
+            break;
+        case 'tetrahedral':
+            drawTetrahedral();
+            break;
+        case 'octahedral':
+            drawOctahedral();
+            break;
+        case 'tshaped':
+            drawTShaped();
+            break;
+        case 'squarePlanar':
+            drawSquarePlanar();
+            break;
+        default:
+            break;
+    }
+}
+
     

@@ -743,8 +743,13 @@ section{
 .interactive-kimia h3{
     font-size: 2.5rem;
     color: var(--black);
-    text-align: center;
     margin-bottom: 1.3rem;
+}
+
+.interactive-kimia p{
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-bottom: 20px;
 }
 
 .interactive-kimia .shape-container {
@@ -754,32 +759,97 @@ section{
     align-items: center;
 }
 
+.interactive-kimia .shape-container select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 2px solid #000;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    appearance: none; /* Hilangkan tampilan default browser */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="none" stroke="%23333" stroke-width=".7" d="M2 0L0 2.5h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+}
+
+.interactive-kimia .shape-container select:hover {
+    background-color: #e0e0e0;
+}
+
+.interactive-kimia .shape-container option {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
+
+.interactive-kimia .shape-container select:focus {
+    border-color: #11999E;
+    background-color: #fff;
+}
+
+.interactive-kimia .shape-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 .interactive-kimia canvas {
     border: 1px solid var(--black);
     display: block; /* Hilangkan pengaruh inline layout */
     margin: 0 auto;
     background-color: var(--white);
 }
-  
-.interactive-kimia .shape-btn {
-    width: 150px;
-    height: 50px; 
-    margin: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border: 2px solid var(--black);
-    background-color: var(--btn-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 3rem;
+
+.molecule-visualization {
+    flex: 0 1 auto;
 }
 
-.interactive-kimia .shape-btn:hover {
-    background-color: var(--btn-color-hover);
-    color: var(--white);
+.visualization-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.controls .heading {
+    margin-bottom: 10px;
+}
+
+/* .shape-container {
+    margin-top: 10px;
+} */
+
+.shape-container select {
+    width: 200px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 2px solid #000;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.shape-container select:hover {
+    background-color: #e0e0e0;
+}
+
+.shape-container select:focus {
+    border-color: #11999E;
+    background-color: #fff;
 }
 
 .footer{

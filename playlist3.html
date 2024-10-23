@@ -173,19 +173,29 @@
         <h1 class="heading">
             Interactive Section
         </h1>
-        <h3>Visualisasi sederhana bentuk molekul</h3>
-        <canvas id="moleculeCanvas" width="400" height="400"></canvas>
-        <div class="shape-container">
-            <div class="shape-btn" onclick="drawLinear()">Linear</div>
-            <div class="shape-btn" onclick="drawBent()">Bent</div>
-            <div class="shape-btn" onclick="drawTrigonal()">Trigonal Planar</div>
-            <div class="shape-btn" onclick="drawTetrahedral()">Tetrahedral</div>
-            <div class="shape-btn" onclick="drawOctahedral()">Octahedral</div>
-            <div class="shape-btn" onclick="drawTShaped()">T-Shaped</div>
-            <div class="shape-btn" onclick="drawSquarePlanar()">Square Planar</div>
+        <div class="visualization-container">
+            <div class="molecule-visualization">
+                <canvas id="moleculeCanvas" width="400" height="400"></canvas>
+            </div>
+            <div class="controls">
+                <h3>Visualisasi sederhana bentuk molekul</h3>
+                <p>Dalam kimia, bentuk molekul merupakan representasi geometris yang menggambarkan bagaimana atom-atom dalam sebuah molekul tersusun dan berinteraksi satu sama lain. Bentuk molekul dapat bervariasi, tergantung pada jumlah pasangan elektron ikatan dan pasangan elektron bebas di sekitar atom pusat.</p>
+                <div class="shape-container">
+                    <select id="moleculeShapes" onchange="handleShapeSelection()">
+                        <option value="">Pilih Bentuk Molekul</option>
+                        <option value="linear">Linear</option>
+                        <option value="bent">Bent</option>
+                        <option value="trigonal">Trigonal Planar</option>
+                        <option value="tetrahedral">Tetrahedral</option>
+                        <option value="octahedral">Octahedral</option>
+                        <option value="tshaped">T-Shaped</option>
+                        <option value="squarePlanar">Square Planar</option>
+                    </select>
+                </div>
+            </div>
         </div>
-      
     </section>
+
 
     <!-- Interactive section end -->
 
