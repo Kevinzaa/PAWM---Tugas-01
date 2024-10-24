@@ -1,5 +1,3 @@
-// Kode JavaScript yang sudah ada di file.js
-
 let body = document.querySelector('body');
 
 let profile = document.querySelector('.header .flex .profile');
