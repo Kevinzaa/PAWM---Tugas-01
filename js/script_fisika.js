@@ -79,71 +79,75 @@ toggleBtn.addEventListener('click', () => {
 });
 
 const canvas = document.getElementById('electricFieldCanvas');
-    const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
-    let charges = [
-        { x: 150, y: 300, charge: 5, radius: 20, isDragging: false }, // Muatan positif
-        { x: 450, y: 300, charge: -5, radius: 20, isDragging: false } // Muatan negatif
-    ];
+let charges = [
+    { x: 150, y: 300, charge: 5, radius: 20, isDragging: false }, // Muatan positif
+    { x: 450, y: 300, charge: -5, radius: 20, isDragging: false } // Muatan negatif
+];
 
-    let k = 8.99e9; // Konstanta Coulomb
+let k = 8.99e9; // Konstanta Coulomb
 
-    function drawCharge(charge) {
-        ctx.beginPath();
-        ctx.arc(charge.x, charge.y, charge.radius, 0, Math.PI * 2);
-        ctx.fillStyle = charge.charge > 0 ? 'red' : 'blue';
-        ctx.fill();
-        ctx.closePath();
+function drawCharge(charge) {
+    ctx.beginPath();
+    ctx.arc(charge.x, charge.y, charge.radius, 0, Math.PI * 2);
+    ctx.fillStyle = charge.charge > 0 ? 'red' : 'blue';
+    ctx.fill();
+    ctx.closePath();
 
-        // Tampilkan tanda (+) atau (-) di tengah bola
-        ctx.fillStyle = 'white';
-        ctx.font = "bold 16px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(charge.charge > 0 ? '+' : '-', charge.x, charge.y);
+    // Tampilkan tanda (+) atau (-) di tengah bola
+    ctx.fillStyle = 'grey';
+    ctx.font = "bold 16px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(charge.charge > 0 ? '+' : '-', charge.x, charge.y);
 
-        // Tampilkan informasi terkait besar muatan
-        ctx.fillStyle = 'black';
-        ctx.font = "14px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(`${charge.charge} C`, charge.x, charge.y - charge.radius - 15); // Tampilkan muatan di atas bola
-    }
+    // Tampilkan informasi terkait besar muatan
+    ctx.fillStyle = 'grey';
+    ctx.font = "14px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(`${charge.charge} C`, charge.x, charge.y - charge.radius - 15); // Tampilkan muatan di atas bola
+}
 
-    function drawElectricFieldLine(startX, startY, endX, endY) {
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(endX, endY);
-        ctx.strokeStyle = 'green';
-        ctx.stroke();
-        ctx.closePath();
-    }
+function drawElectricFieldLine(startX, startY, endX, endY) {
+    ctx.beginPath();
+    ctx.moveTo(startX, startY);
+    ctx.lineTo(endX, endY);
+    ctx.strokeStyle = 'green';
+    ctx.stroke();
+    ctx.closePath();
+}
 
-    function calculateDistance(x1, y1, x2, y2) {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-    }
+function calculateDistance(x1, y1, x2, y2) {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
 
-    const PIXELS_PER_METER = 100; // Misalkan 100 piksel = 1 meter
+const PIXELS_PER_METER = 100; // Misalkan 100 piksel = 1 meter
 
-    function calculateForce(q1, q2, distanceInPixels) {
-      // Konversi jarak dari piksel ke meter
-      let distanceInMeters = distanceInPixels / PIXELS_PER_METER;
+function calculateForce(q1, q2, distanceInPixels) {
+    // Konversi jarak dari piksel ke meter
+    let distanceInMeters = distanceInPixels / PIXELS_PER_METER;
 
-      // Hukum Coulomb: F = k * |q1 * q2| / r^2, dengan r dalam meter
-      return (k * Math.abs(q1 * q2)) / Math.pow(distanceInMeters, 2);
-  }
+    // Hukum Coulomb: F = k * |q1 * q2| / r^2, dengan r dalam meter
+    return (k * Math.abs(q1 * q2)) / Math.pow(distanceInMeters, 2);
+}
 
-    function drawDistanceText(chargeA, chargeB, distance) {
-        // Hitung titik tengah antara kedua muatan
-        const midX = (chargeA.x + chargeB.x) / 2;
-        const midY = (chargeA.y + chargeB.y) / 2;
+function drawDistanceText(chargeA, chargeB, distance) {
+    // Konversi jarak dari piksel ke sentimeter (1 cm = 37.7952755906 piksel)
+    const pixelsPerCm = 37.7952755906;
+    const distanceInCm = distance / pixelsPerCm;
 
-        // Tampilkan jarak di titik tengah
-        ctx.fillStyle = 'black';
-        ctx.font = "14px Arial";
-        ctx.fillText(`Jarak: ${distance.toFixed(2)} px`, midX, midY - 10); // Tampilkan jarak di tengah-tengah garis
-    }
+    // Hitung titik tengah antara kedua muatan
+    const midX = (chargeA.x + chargeB.x) / 2;
+    const midY = (chargeA.y + chargeB.y) / 2;
 
-    function drawScene() {
+    // Tampilkan jarak di titik tengah dalam satuan cm
+    ctx.fillStyle = 'grey';
+    ctx.font = "14px Arial";
+    ctx.fillText(`Jarak: ${distanceInCm.toFixed(2)} cm`, midX, midY - 10); // Tampilkan jarak dalam cm
+}
+
+function drawScene() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Gambarkan muatan
@@ -160,7 +164,7 @@ const canvas = document.getElementById('electricFieldCanvas');
     let forceExponential = force.toExponential(2); // Angka 2 di sini menentukan 2 digit setelah koma
 
     // Tampilkan gaya Coulomb di bagian bawah layar dalam bentuk eksponensial
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'grey';
     ctx.fillText(`Gaya Coulomb: ${forceExponential} N`, canvas.width / 2, 20);
 
     // Gambar garis medan listrik antara muatan
@@ -178,39 +182,36 @@ const canvas = document.getElementById('electricFieldCanvas');
     });
 }
 
+let mouseX = 0, mouseY = 0;
+canvas.addEventListener('mousedown', (e) => {
+    mouseY = e.offsetY;
+    mouseX = e.offsetX;
 
-    // Fungsi untuk mendeteksi jika muatan sedang diseret
-    let mouseX = 0, mouseY = 0;
-    canvas.addEventListener('mousedown', (e) => {
-        mouseX = e.offsetX;
-        mouseY = e.offsetY;
-
-        charges.forEach((charge) => {
-            let distance = calculateDistance(mouseX, mouseY, charge.x, charge.y);
-            if (distance < charge.radius) {
-                charge.isDragging = true;
-            }
-        });
+    charges.forEach((charge) => {
+        let distance = calculateDistance(mouseX, mouseY, charge.x, charge.y);
+        if (distance < charge.radius) {
+            charge.isDragging = true;
+        }
     });
+});
 
-    canvas.addEventListener('mousemove', (e) => {
-        mouseX = e.offsetX;
-        mouseY = e.offsetY;
+canvas.addEventListener('mousemove', (e) => {
+    mouseX = e.offsetX;
+    mouseY = e.offsetY;
+});
+
+canvas.addEventListener('mouseup', () => {
+    charges.forEach((charge) => {
+        charge.isDragging = false;
     });
+});
 
-    canvas.addEventListener('mouseup', () => {
-        charges.forEach((charge) => {
-            charge.isDragging = false;
-        });
-    });
+function resetCharges() {
+    charges = [
+        { x: 150, y: 300, charge: 5, radius: 20, isDragging: false },
+        { x: 450, y: 300, charge: -5, radius: 20, isDragging: false }
+    ];
+    drawScene();
+}
 
-    function resetCharges() {
-        charges = [
-            { x: 150, y: 300, charge: 5, radius: 20, isDragging: false },
-            { x: 450, y: 300, charge: -5, radius: 20, isDragging: false }
-        ];
-        drawScene();
-    }
-
-    // Jalankan simulasi setiap frame
-    setInterval(drawScene, 100);
+setInterval(drawScene, 100);

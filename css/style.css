@@ -769,7 +769,7 @@ section{
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-    appearance: none; /* Hilangkan tampilan default browser */
+    appearance: none; 
     background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="none" stroke="%23333" stroke-width=".7" d="M2 0L0 2.5h4z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 10px top 50%;
@@ -827,10 +827,6 @@ section{
     margin-bottom: 10px;
 }
 
-/* .shape-container {
-    margin-top: 10px;
-} */
-
 .shape-container select {
     width: 200px;
     padding: 5px;
@@ -852,39 +848,58 @@ section{
     background-color: #fff;
 }
 
-#electricFieldCanvas {
-    border: 1px solid black;
-}
-
 .interactive-fisika {
     padding: 20px;
-    text-align: left; /* Ubah dari center menjadi left */
+    text-align: left;
 }
 
-.interactive-fisika h3 {
-    font-size: 2.5rem;
-    color: var(--black);
-    margin-bottom: 1.3rem;
-    text-align: left; /* Ubah menjadi kiri */
+.interactive-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.interactive-fisika canvas {
-    border: 1px solid var(--black);
-    display: block;
-    margin: 0; /* Hilangkan margin auto supaya tidak di tengah */
+.canvas-container {
+    display: inline-block;
+}
+
+.interactive-fisika .interactive-container .canvas-container canvas{
     background-color: var(--white);
 }
 
-.interactive-fisika button {
-    margin-top: 20px;
-    background-color: var(--btn-color);
-    padding: 1.5rem 3rem;
+.controls {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Jarak antara canvas dan teks */
+    justify-content: center;
 }
 
-.interactive-fisika button:hover {
-    margin-top: 20px;
+.controls h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1.3rem;
+}
+
+.controls p {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    background-color: var(--btn-color);
+    color: #fff;
+    padding: 1rem 3.3rem;
+    width: fit-content;
+    align-self: flex-start;
+    border: .2rem solid var(--black);
+    border-radius: 10px;
+}
+
+.controls button:hover {
     background-color: var(--btn-color-hover);
 }
+
 
 .footer{
     position: sticky;
