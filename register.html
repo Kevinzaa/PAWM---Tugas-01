@@ -68,60 +68,26 @@
 
     <!-- Side bar section end -->
 
-    <!-- Profile section start -->
+    <!-- Register section start -->
     
-    <section class="profile">
-        <h1 class="heading">profile mahasiswa</h1>
-        <div class="details">
-            <div class="user">
-                <img src="images/profilepicture.png" alt="">
-                <h3>Muhammad Kevinza Faiz</h3>
-                <p>Mahasiswa</p>
-                <p>Sistem dan Teknologi Informasi</p>
-                <p>18222072</p>
-                <a href="update_profile.html" class="inline-btn">update profile</a>
-            </div>
-            
-            <div class="box-container">
-                <div class="box">
-                    <div class="flex">
-                        <i class="fas fa-video"></i>
-                        <div>
-                            <h3>9</h3>
-                            <span>watched videos</span>
-                        </div>
-                    </div>
-                    <a href="#" class="inline-btn">view liked</a>
-                </div>
-
-                <div class="box">
-                    <div class="flex">
-                        <i class="fas fa-bookmark"></i>
-                        <div>
-                            <h3>3</h3>
-                            <span>saved playlists</span>
-                        </div>
-                    </div>
-                    <a href="#" class="inline-btn">view playlists</a>
-                </div>
-
-                <div class="box">
-                    <div class="flex">
-                        <i class="fas fa-heart"></i>
-                        <div>
-                            <h3>5</h3>
-                            <span>liked videos</span>
-                        </div>
-                    </div>
-                    <a href="#" class="inline-btn">view liked</a>
-                </div>
-
-            </div>
-
-        </div>
+    <section class="form-container">
+        <form action="" method="post" enctype="multipart/form-data">
+            <h3>register account</h3>
+            <p>name <span>*</span></p>
+            <input type="text" name="name" placeholder="enter your name" maxlength="100" required class="box">
+            <p>email <span>*</span></p>
+            <input type="text" name="email" placeholder="enter your email" maxlength="100" required class="box">
+            <p>password <span>*</span></p>
+            <input type="text" name="pass" placeholder="enter your password" maxlength="100" required class="box">
+            <p>confirm password <span>*</span></p>
+            <input type="text" name="c_pass" placeholder="confirm your password" maxlength="100" required class="box">
+            <p>select pict <span>*</span></p>
+            <input type="file" name="image" accept="image/*" required class="box">
+            <input type="submit" name="submit" value="register now" class="btn">
+        </form>
     </section>
 
-    <!-- Profile section end -->
+    <!-- Register section end -->
     
     <!-- Footer Section start -->
     
