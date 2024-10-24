@@ -954,6 +954,18 @@ section{
         display: flex;
         justify-content: center;
     }
+
+    .canvas-container{
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+    }
+
+    .interactive-container{
+        flex-direction: column; 
+        align-items: center; 
+    }
+    
 }
 
 @media (max-width : 991px){
@@ -994,13 +1006,13 @@ section{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    .visualization-container {
+    .visualization-container, .interactive-container {
         flex-direction: column;
         gap: 15px;
         align-items: center; 
     }
 
-    .molecule-visualization canvas {
+    .molecule-visualization canvas, .canvas-container canvas {
         width: 90%; 
         height: auto;
     }
@@ -1036,12 +1048,12 @@ section{
         height: 20rem;
     }
 
-    .visualization-container {
+    .visualization-container, .interactive-container {
         flex-direction: column;
         align-items: center; 
     }
 
-    .molecule-visualization canvas {
+    .molecule-visualization canvas, .canvas-container canvas {
         width: 80%; 
     }
 
@@ -1051,6 +1063,10 @@ section{
 
     .controls .description {
         font-size: 1rem; 
+    }
+
+    .interactive-fisika .interactive-container .controls button{
+        align-items: center;
     }
 
     .shape-container select {
