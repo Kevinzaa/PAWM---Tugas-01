@@ -86,14 +86,15 @@ function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function drawAtom(x, y, label) {
+function drawAtom(x, y, label, color) {
     ctx.beginPath();
     ctx.arc(x, y, 20, 0, Math.PI * 2);
-    ctx.fillStyle = 'orange';
+    ctx.fillStyle = color;
     ctx.fill();
     ctx.stroke();
     ctx.fillStyle = 'black';
     ctx.fillText(label, x - 5, y + 5);
+    ctx.strokeStyle = '#FFB6C1';
 }
 
 function drawBond(x1, y1, x2, y2) {
@@ -103,28 +104,31 @@ function drawBond(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
+let orange = '#FFA24C';
+let blue = '#08C2FF';
+
 function drawLinear() {
     clearCanvas();
-    drawAtom(100, 200, "A");
-    drawAtom(300, 200, "B");
+    drawAtom(100, 200, "A", orange);
+    drawAtom(300, 200, "B", orange);
     drawBond(120, 200, 280, 200);
 }
 
 function drawBent() {
     clearCanvas();
-    drawAtom(200, 200, "A");
-    drawAtom(100, 300, "B");
-    drawAtom(300, 300, "C");
+    drawAtom(200, 200, "A", blue);
+    drawAtom(100, 300, "B", orange);
+    drawAtom(300, 300, "C",orange);
     drawBond(180, 220, 110, 280);
     drawBond(220, 220, 280, 280);
 }
 
 function drawTrigonal() {
     clearCanvas();
-    drawAtom(200, 200, "A");
-    drawAtom(100, 300, "B");
-    drawAtom(300, 300, "C");
-    drawAtom(200, 100, "D");
+    drawAtom(200, 200, "A", blue);
+    drawAtom(100, 300, "B", orange);
+    drawAtom(300, 300, "C",orange);
+    drawAtom(200, 100, "D",orange);
     drawBond(200, 180, 200, 120);
     drawBond(200, 220, 280, 280);
     drawBond(200, 220, 120, 280);
@@ -132,11 +136,11 @@ function drawTrigonal() {
 
 function drawTetrahedral() {
     clearCanvas();
-    drawAtom(200, 200, "A");
-    drawAtom(100, 300, "B");
-    drawAtom(300, 300, "C");
-    drawAtom(200, 100, "D");
-    drawAtom(200, 50, "E");
+    drawAtom(200, 200,"A", blue);
+    drawAtom(100, 300,"B", orange);
+    drawAtom(300, 300,"C", orange);
+    drawAtom(200, 100,"D", orange);
+    drawAtom(200, 50,"E", orange);
     drawBond(200, 220, 120, 280);
     drawBond(200, 220, 280, 280);
     drawBond(200, 180, 200, 120);
@@ -145,13 +149,13 @@ function drawTetrahedral() {
     
 function drawOctahedral() {
     clearCanvas();
-    drawAtom(200, 200, "A");
-    drawAtom(100, 200, "B");
-    drawAtom(300, 200, "C");
-    drawAtom(200, 100, "D");
-    drawAtom(200, 300, "E");
-    drawAtom(200, 50, "F");
-    drawAtom(200, 350, "G");
+    drawAtom(200, 200, "A", blue);
+    drawAtom(100, 200, "B",orange);
+    drawAtom(300, 200, "C", orange);
+    drawAtom(200, 100, "D", orange);
+    drawAtom(200, 300, "E", orange);
+    drawAtom(200, 50, "F", orange);
+    drawAtom(200, 350, "G", orange);
     drawBond(120, 200, 180, 200);
     drawBond(220, 200, 280, 200);
     drawBond(200, 180, 200, 120);
@@ -162,10 +166,10 @@ function drawOctahedral() {
     
 function drawTShaped() {
     clearCanvas();
-    drawAtom(200, 200, "A");
-    drawAtom(200, 100, "B");
-    drawAtom(300, 200, "C");
-    drawAtom(100, 200, "D");
+    drawAtom(200, 200, "A", blue);
+    drawAtom(200, 100, "B", orange);
+    drawAtom(300, 200, "C", orange);
+    drawAtom(100, 200, "D", orange);
     drawBond(200, 180, 200, 120);
     drawBond(220, 200, 280, 200);
     drawBond(180, 200, 120, 200);
@@ -173,11 +177,11 @@ function drawTShaped() {
     
 function drawSquarePlanar() {
     clearCanvas();
-    drawAtom(200, 200, "A");
-    drawAtom(100, 200, "B");
-    drawAtom(300, 200, "C");
-    drawAtom(200, 100, "D");
-    drawAtom(200, 300, "E");
+    drawAtom(200, 200, "A", blue);
+    drawAtom(100, 200, "B",orange);
+    drawAtom(300, 200, "C", orange);
+    drawAtom(200, 100, "D", orange);
+    drawAtom(200, 300, "E", orange);
     drawBond(120, 200, 180, 200);
     drawBond(220, 200, 280, 200);
     drawBond(200, 180, 200, 120);
