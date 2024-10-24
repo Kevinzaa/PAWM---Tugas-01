@@ -763,9 +763,9 @@ section{
     width: 200px;
     padding: 10px;
     font-size: 16px;
-    background-color: #f0f0f0;
-    color: #333;
-    border: 2px solid #000;
+    background-color: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
     border-radius: 5px;
     outline: none;
     cursor: pointer;
@@ -1072,5 +1072,10 @@ section{
     .shape-container select {
         width: 150px; 
         padding: 4px;
+    }
+
+    .interactive-kimia .shape-container select {
+        width: 150px;
+        padding: 5px;
     }
 }
