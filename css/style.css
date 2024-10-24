@@ -800,7 +800,7 @@ section{
 
 .interactive-kimia canvas {
     border: 1px solid var(--black);
-    display: block; /* Hilangkan pengaruh inline layout */
+    display: block; 
     margin: 0 auto;
     background-color: var(--white);
 }
@@ -870,7 +870,7 @@ section{
 .controls {
     display: flex;
     flex-direction: column;
-    margin-left: 20px; /* Jarak antara canvas dan teks */
+    margin-left: 20px;
     justify-content: center;
 }
 
